@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Tracking Drawing App</title>
+</head>
+<body>
+    <div class="container">
+        <video id="webcam" autoplay playsinline></video>
+        <canvas id="drawingCanvas"></canvas>
+        <canvas id="landmarkCanvas"></canvas>
+        
+        <header>
+            <h1>Hand Tracking Drawing Canvas</h1>
+            <div class="controls">
+                <button id="startCamera">Start Camera</button>
+                <button id="stopCamera">Stop Camera</button>
+                <button id="clearCanvas">Clear Canvas</button>
+                
+                <div class="control-group">
+                    <label for="penColor">Pen Color:</label>
+                    <input type="color" id="penColor" value="#000000">
+                </div>
+                
+                <div class="control-group">
+                    <label for="penSize">Pen Size:</label>
+                    <input type="range" id="penSize" min="1" max="30" value="5">
+                    <span id="penSizeValue">5</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="drawingMode">Mode:</label>
+                    <select id="drawingMode">
+                        <option value="pen">Pen</option>
+                        <option value="spray">Spray</option>
+                        <option value="eraser">Eraser</option>
+                        <option value="rainbow">Rainbow</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="shapeMode">Shape:</label>
+                    <select id="shapeMode">
+                        <option value="free">Free Draw</option>
+                        <option value="line">Line</option>
+                        <option value="circle">Circle</option>
+                        <option value="rectangle">Rectangle</option>
+                    </select>
+                </div>
+                
+                <button id="saveDrawing">Save Drawing</button>
+            </div>
+            
+            <div class="gesture-instructions">
+                <p>Gesture Controls: ✋ Palm - Select | ✌️ Two fingers - Adjust | 👌 Pinch - Activate</p>
+            </div>
+        </header>
+        
+        <div id="instructions">
+            <p>Point with your index finger to draw. Raise your hand to stop drawing.</p>
+            <p>Calibration: Point at center of screen for 2 seconds to align drawing point</p>
+        </div>
+        
+        <div id="status">Camera off</div>
+    </div>
+</body>
+</html>

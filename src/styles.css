@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(44, 62, 80, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    backdrop-filter: blur(5px); /* Adds a nice blur effect */
+    z-index: 30;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.gesture-instructions {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+.controls button {
+    padding: 0.5rem 1rem;
+    background-color: rgba(52, 152, 219, 0.9);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.controls button:hover {
+    background-color: rgba(41, 128, 185, 0.9);
+    transform: translateY(-2px);
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+}
+
+.control-group label {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.pen-size input[type="range"] {
+    width: 80px;
+}
+
+#webcam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); /* Mirror the webcam feed */
+    z-index: 5;
+}
+
+#drawingCanvas, #landmarkCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#drawingCanvas {
+    z-index: 10;
+    cursor: crosshair;
+}
+
+#landmarkCanvas {
+    z-index: 20;
+}
+
+#instructions {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    font-size: 1rem;
+    z-index: 25;
+}
+
+#instructions p {
+    margin: 0.2rem 0;
+}
+
+#status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 35;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .control-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+    
+    #instructions {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+    
+    #instructions p {
+        margin: 0.1rem 0;
+    }
+    
+    .gesture-instructions {
+        font-size: 0.7rem;
+    }
+    
+    header {
+        padding: 0.5rem;
+    }
+}
